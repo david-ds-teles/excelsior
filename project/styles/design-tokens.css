@@ -135,4 +135,259 @@
   --breakpoint-lg: 1024px;
   --breakpoint-xl: 1280px;
   --breakpoint-2xl: 1536px;
+
+  /* Animation Utilities */
+  --animation-duration-slow: 1000ms;
+  --animation-duration-medium: 500ms;
+  --animation-duration-fast: 300ms;
+  
+  --animation-timing-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-timing-in: cubic-bezier(0.4, 0, 1, 1);
+  --animation-timing-out: cubic-bezier(0, 0, 0.2, 1);
+  --animation-timing-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  --animation-delay-0: 0ms;
+  --animation-delay-100: 100ms;
+  --animation-delay-200: 200ms;
+  --animation-delay-300: 300ms;
+  --animation-delay-500: 500ms;
+  --animation-delay-700: 700ms;
+  --animation-delay-1000: 1000ms;
+  --animation-delay-2000: 2000ms;
+  --animation-delay-3000: 3000ms;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--animation-duration-medium) var(--animation-timing-out) forwards;
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp var(--animation-duration-medium) var(--animation-timing-out) forwards;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 6s var(--animation-timing-in-out) infinite;
+}
+
+/* Scroll Animation */
+@keyframes fadeInOnScroll {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  animation: fadeInOnScroll var(--animation-duration-medium) var(--animation-timing-out) forwards;
+  animation-play-state: paused;
+}
+
+/* Float Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 10s ease-in-out infinite;
+}
+
+/* Shine Animation for Buttons */
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+.group:hover .group-hover\:animate-shine {
+  animation: shine 1.5s ease-in-out;
+}
+
+/* Scale Animation */
+@keyframes scaleX {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.animate-scale-x {
+  animation: scaleX 1.5s var(--animation-timing-out) forwards;
+  animation-delay: 0.5s;
+}
+
+/* Slide Right Animation */
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-slide-right {
+  animation: slideRight 20s linear infinite;
+}
+
+/* Orbit Animation */
+@keyframes orbit {
+  0% {
+    transform: translateX(-50%) translateY(-50%) rotate(0deg) translateX(150px) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotate(360deg) translateX(150px) rotate(-360deg);
+  }
+}
+
+.animate-orbit {
+  animation: orbit 30s linear infinite;
+}
+
+/* Spin Animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 30s linear infinite;
+}
+
+.animate-spin-slower {
+  animation: spin 60s linear infinite;
+}
+
+.animation-reverse {
+  animation-direction: reverse;
+}
+
+/* 3D Effect Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.rotate-y-12 {
+  transform: rotateY(12deg);
+}
+
+/* Gradient Utilities */
+.bg-gradient-conic {
+  background-image: conic-gradient(var(--tw-gradient-stops));
+}
+
+/* Animation Delays */
+.animation-delay-100 {
+  animation-delay: var(--animation-delay-100);
+}
+
+.animation-delay-200 {
+  animation-delay: var(--animation-delay-200);
+}
+
+.animation-delay-300 {
+  animation-delay: var(--animation-delay-300);
+}
+
+.animation-delay-500 {
+  animation-delay: var(--animation-delay-500);
+}
+
+.animation-delay-700 {
+  animation-delay: var(--animation-delay-700);
+}
+
+.animation-delay-1000 {
+  animation-delay: var(--animation-delay-1000);
+}
+
+.animation-delay-2000 {
+  animation-delay: var(--animation-delay-2000);
+}
+
+.animation-delay-3000 {
+  animation-delay: 3000ms;
+}
+
+/* Hover Animations */
+.hover-scale {
+  transition: transform var(--animation-duration-fast) var(--animation-timing-out);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-lift {
+  transition: transform var(--animation-duration-fast) var(--animation-timing-out),
+              box-shadow var(--animation-duration-fast) var(--animation-timing-out);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
